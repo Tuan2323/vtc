@@ -10,19 +10,22 @@
     </thead>
     <tbody>
     <?php
-    foreach ($affichage as $conducteur)
+ 
+    foreach($affichage as $conducteur)
+
+
     {
       echo "<tr>";
       echo "<td>";
-        echo $livre->getId_conducteur();
+        echo $conducteur->getId_conducteur();
         echo "<td>";
-        echo $livre->getPrenom();
+        echo $conducteur->getPrenom();
         echo "<td>";
-        echo $livre->getNom();
+       echo $conducteur->getNom();
       echo "</td>";
      
       echo "<td> <a href=''> <img src = './Ressources/images/updated.png'> </a> </td>";
-      echo "<td> <a href=''><img src = './Ressources/images/delete.jpg'></a></td>";
+      echo "<td> <a href=''><img src = './Ressources/images/delete.png'></a></td>";
     
     }
       ?>

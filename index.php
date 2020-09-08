@@ -8,7 +8,7 @@ require_once 'Controlleurs/ConducteurControlleur.php';
 
 $conducteur = new ConducteurController();
 
-$conducteur->afficherConducteur();
+ $conducteur->afficherConducteur();
 
 $conducteur->ajouterConducteur();
 

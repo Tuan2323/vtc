@@ -11,53 +11,23 @@ class Conducteur
 
 
 
-	
+	public function getNom(){
+        return $this->nom;
+    }
+    
+    public function SetNom($nom){
+        return $this->nom = $nom;
+    }
 
-	
+    public function getPrenom(){
+        return $this->prenom;
+    }
+    
+    public function SetPrenom($prenom){
+        return $this->prenom = $prenom;
+    }
 
-	/**
-	 * Get the value of nom
-	 */ 
-	public function getNom()
-	{
-		return $this->nom;
-	}
 
-	/**
-	 * Set the value of nom
-	 *
-	 * @return  self
-	 */ 
-	public function setNom($nom)
-	{
-		$this->nom = $nom;
-
-		return $this;
-	}
-
-	/**
-	 * Get the value of prenom
-	 */ 
-	public function getPrenom()
-	{
-		return $this->prenom;
-	}
-
-	/**
-	 * Set the value of prenom
-	 *
-	 * @return  self
-	 */ 
-	public function setPrenom($prenom)
-	{
-		$this->prenom = $prenom;
-
-		return $this;
-	}
-
-	/**
-	 * Get the value of id_conducteur
-	 */ 
 	public function getId_conducteur()
 	{
 		return $this->id_conducteur;
@@ -79,9 +49,9 @@ class Conducteur
 	{
 		$bdd = $this->getConnection();
 
-		$sql = $bdd->prepare(" INSERT INTO conducteur (id_conducteur, prenom, nom) VALUES (, '$prenom','$nom')");
+		$sql = $bdd->prepare("INSERT INTO conducteur(prenom, nom) VALUES ( '$prenom','$nom')");
 
-		$sql->execute();
+		//$sql->execute();
 		
 		if (!$sql->execute()){
 			die("Oups, il y'a une erreur dans la requete");
@@ -93,16 +63,15 @@ class Conducteur
 
     public function list(){
         $bdd = $this->getConnection();
-        $sql = $bdd->prepare("SELECT * FROM 'conducteur'");
+        $sql = $bdd->prepare("SELECT * FROM conducteur");
         $sql->execute();
-        $resultat = $sql->fetchALL(PDO::FETCH_CLASS, 'conducteur');
+        $resultat = $sql->fetchALL(PDO::FETCH_CLASS,'conducteur');
+
+
         return $resultat;
     }
-	/**
-	 * Set the value of id_conducteur
-	 *
-	 * @return  self
-	 */ 
+  
+	
 	
 }
 

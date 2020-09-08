@@ -14,8 +14,8 @@
 
 			//	$id_conducteur = $conducteur->setId_conducteur($_POST['id_conducteur']);
 				$prenom = $conducteur->setPrenom($_POST['prenom']);
-				$nom = $conducteur->setNom($_POST['nom']);
-
+                $nom = $conducteur->setNom($_POST['nom']);
+                
 				$conducteur->insert($prenom, $nom);
 			}
     }
@@ -23,9 +23,10 @@
         $conducteur = new Conducteur();
 
         $affichage = $conducteur->list();
-      //$affichage = $conducteur->list();
+      
 
       require_once "./Vues/afficherConducteur.php";
+     
     }
 	}
 ?>
