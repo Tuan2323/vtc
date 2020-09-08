@@ -62,7 +62,7 @@ class Vehicule
 	{
 		$bdd = $this->getConnection();
 
-		$sql = $bdd->prepare("INSERT INTO vehicule(marque, modele,coouleur,immat) VALUES ( '$marque', '$modele', '$couleur', '$immatriculation')");
+		$sql = $bdd->prepare("INSERT INTO vehicule(marque, modele,couleur,immatriculation) VALUES ( '$marque', '$modele', '$couleur', '$immatriculation')");
 
 		//$sql->execute();
 		

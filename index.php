@@ -4,12 +4,35 @@
 
 	require_once 'Vues/header.html';
 //require_once 'Vues/afficherConducteur.php';
-require_once 'Controlleurs/ConducteurControlleur.php';
 
+
+
+echo"<div class=\"tab-content\">";
+require_once 'Controlleurs/ConducteurControlleur.php';
+echo" <div class=\"tab-pane fade show active\" id=\"conducteur\" role=\"tabpanel\">";
 $conducteur = new ConducteurController();
 
  $conducteur->afficherConducteur();
 
 $conducteur->ajouterConducteur();
+echo "</div>";
+echo" <div class=\"tab-pane\" id=\"vehicule\" role=\"tabpanel\">";
 
+require_once 'Controlleurs/VehiculeControlleur.php';
+
+$vehicule = new VehiculeController();
+
+$vehicule->afficherVehicule();
+
+$vehicule->ajouterVehicule();
+echo "</div>";
+echo" <div class=\"tab-pane\" id=\"association\" role=\"tabpanel\">";
+require_once 'Controlleurs/AssociationControlleur.php';
+
+$association = new AssociationController();
+
+$association->afficherAssociation();
+
+$association->ajouterAssociation();
+echo "</div>";
 ?>

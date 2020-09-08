@@ -17,6 +17,7 @@
                 $modele = $vehicule->setModele($_POST['modele']);
                 $couleur = $vehicule->setCouleur($_POST['couleur']);
                 $immatriculation = $vehicule->setImmatriculation($_POST['immatriculation']);
+                
 				$vehicule->insert($marque, $modele, $couleur, $immatriculation);
 			}
     }

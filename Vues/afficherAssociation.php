@@ -2,10 +2,8 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Marque</th>
-        <th scope="col">Modele</th>
-        <th scope="col">Couleur</th>
-        <th scope="col">Immatriculation</th>
+        <th scope="col">Conducteur</th>
+        <th scope="col">Vehicule</th>
         <th scope="col">Modif</th>
         <th scope="col">Suppr</th>
       </tr>
@@ -13,22 +11,18 @@
     <tbody>
     <?php
  
-    foreach($affichage as $vehicule)
+    foreach($affichage as $association)
 
 
     {
       echo "<tr>";
       echo "<td>";
-        echo $vehicule->getId_vehicule();
+        echo $association->getId_conducteur();
         echo "<td>";
-        echo $vehicule->getMarque();
+        echo $association->getPrenom();
         echo "<td>";
-       echo $vehicule->getModele();
-      echo "<td>";
-      echo $vehicule->getCouleur();
-      echo "<td>";
-     echo $vehicule->getImmatriculation();
-    echo "</td>";
+       echo $association->getNom();
+      echo "</td>";
      
       echo "<td> <a href=''> <img src = './Ressources/images/updated.png'> </a> </td>";
       echo "<td> <a href=''><img src = './Ressources/images/delete.png'></a></td>";
