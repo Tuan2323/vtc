@@ -49,7 +49,7 @@ class Vehicule
     public function getConnection()
 	{
 		try{
-			$bdd = new PDO('mysql:host=localhost;port=8889;dbname=vtc', "root", "root");
+			$bdd = new PDO('mysql:host=localhost;port=3309;dbname=vtc', "root", "");
 		}
 		catch ( PDOException $e){
 			print "Erreur";
@@ -84,7 +84,21 @@ class Vehicule
         return $resultat;
     }
   
-	
+    public function modifierVehicule($id_vehicule,$marque,$modele,$couleur,$immatriculation){
+        $bdd = $this->getConnection();
+        $sql = $bdd->prepare("UPDATE vehicule SET (marque ='10', modele ='10', couleur ='10', immatriculation ='10') 
+        WHERE id_vehicule = 1 ");
+        var_dump($sql);
+        $sql->execute();
+        $resultat = $sql->fetchALL(PDO::FETCH_CLASS,'vehicule');
+        if ($resultat) {
+            echo "Les données ont bien été modifiées <a href=\"index.php\"> Retour </a>";
+          } else {
+              echo "Erreur " . $bdd->error;
+          }
+
+        return $resultat;
+    }
 	
 }
 

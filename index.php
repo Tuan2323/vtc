@@ -11,10 +11,17 @@ echo"<div class=\"tab-content\">";
 require_once 'Controlleurs/ConducteurControlleur.php';
 echo" <div class=\"tab-pane fade show active\" id=\"conducteur\" role=\"tabpanel\">";
 $conducteur = new ConducteurController();
+if (isset($_GET['action'])) {
 
+    if($_GET['action'] == 'modifierConducteur'){
+        $conducteur->show($_GET['id_conducteur']);
+    }
+}else{
  $conducteur->afficherConducteur();
 
 $conducteur->ajouterConducteur();
+}
+
 echo "</div>";
 echo" <div class=\"tab-pane\" id=\"vehicule\" role=\"tabpanel\">";
 

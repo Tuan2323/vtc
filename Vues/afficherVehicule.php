@@ -30,7 +30,7 @@
      echo $vehicule->getImmatriculation();
     echo "</td>";
      
-      echo "<td> <a href=''> <img src = './Ressources/images/updated.png'> </a> </td>";
+      echo "<td> <a href='?action='modifierVehicule&id_conducteur='.$conducteur->getId_conducteur().'> <img src = './Ressources/images/updated.png'> </a> </td>";
       echo "<td> <a href=''><img src = './Ressources/images/delete.png'></a></td>";
     
     }

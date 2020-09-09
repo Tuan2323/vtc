@@ -29,6 +29,13 @@
 
       require_once "./Vues/afficherVehicule.php";
      
+	}
+	public function show($id)
+    {
+        require_once "./Models/Model.php";
+
+        $vehicule = new Vehicule();
+        $conducteurbyId = $vehicule->findById($id,'vehicule');
     }
 	}
 ?>

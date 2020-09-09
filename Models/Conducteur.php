@@ -3,7 +3,8 @@
 	/**
 	 * 
 	 */
-class Conducteur
+    require_once 'Model.php';
+class Conducteur extends Model
 {	
 	private $id_conducteur;
 	private $prenom;
@@ -33,24 +34,14 @@ class Conducteur
 		return $this->id_conducteur;
     }
     
-    public function getConnection()
-	{
-		try{
-			$bdd = new PDO('mysql:host=localhost;port=8889;dbname=vtc', "root", "root");
-		}
-		catch ( PDOException $e){
-			print "Erreur";
-		}
-
-		return $bdd;
-	}
+   
 
 	public function insert($prenom, $nom)
 	{
-		$bdd = $this->getConnection();
+		$bdd = Model::getConnection();
 
 		$sql = $bdd->prepare("INSERT INTO conducteur(prenom, nom) VALUES ( '$prenom','$nom')");
-
+        var_dump($sql);
 		//$sql->execute();
 		
 		if (!$sql->execute()){
@@ -64,14 +55,27 @@ class Conducteur
     public function list(){
         $bdd = $this->getConnection();
         $sql = $bdd->prepare("SELECT * FROM conducteur");
+        var_dump($sql);
         $sql->execute();
-        $resultat = $sql->fetchALL(PDO::FETCH_CLASS,'conducteur');
+        $resultat = $sql->fetchAll(PDO::FETCH_CLASS,'conducteur');
 
 
         return $resultat;
     }
   
-	
+	public function update($id_conducteur, $prenom, $nom)
+	{
+		$bdd = Model::getConnection();
+
+		$sql = $bdd->prepare("UPDATE conducteur SET prenom ='".$prenom."', nom ='".$nom."' WHERE id_conducteur =" .$id_conducteur);
+		
+
+		if(!$sql->execute()){
+			die("ATTENTION!!!!");
+		}
+
+		header("Location: index.php");
+	}
 	
 }
 
